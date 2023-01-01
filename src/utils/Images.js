@@ -4,3 +4,5 @@ export const IMAGE = require('../../assets/icons/image.png');
 export const LINK = require('../../assets/icons/link.png');
 export const UPLOAD = require('../../assets/icons/upload.png');
 export const BACKGROUND_IMAGE = require('../../assets/icons/Dubai_Marina_Skyline.jpg');
+export const PROFILE_PIC = require('../../assets/icons/profile_pic.jpg');
+export const NOTIFICATION = require('../../assets/icons/bell.png');
