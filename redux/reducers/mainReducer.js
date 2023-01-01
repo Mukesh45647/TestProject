@@ -1,21 +1,35 @@
-import {ADD_NEW_FUEL_SUCCESS, ADD_NEW_FUEL_FAIL} from '../action/mainAction';
+import {GET_COUNTRY_CODE_SUCCES,  GET_COUNTRYCODE_FAIL, SET_SELECTED_LIST_SUCCESS, SET_SELECTED_ITEM_SUCCESS} from '../action/mainAction';
 
 const initialState = {
-  user: {},
+  CountryList: [],
+  error: {}, 
+  selectedList: [], 
+  selectedItem: {}
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ADD_NEW_FUEL_SUCCESS:
+    case GET_COUNTRY_CODE_SUCCES:
       return {
         ...state,
-        data: action.payload,
+        CountryList: action.payload,
       };
-    case ADD_NEW_FUEL_FAIL:
+    case GET_COUNTRYCODE_FAIL:
       return {
         ...state,
         error: action.payload,
       };
+      case SET_SELECTED_LIST_SUCCESS:
+        return{
+          ...state, 
+          selectedList: action.payload
+        }
+        case SET_SELECTED_ITEM_SUCCESS:
+          console.log('1222--> ',action.payload )
+        return{
+          ...state, 
+          selectedItem: action.payload
+        }
   }
 
   return state;
