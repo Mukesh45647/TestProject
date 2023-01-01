@@ -31,7 +31,6 @@ const HomeScreen = (props) => {
   const selected = useSelector(state => state.main.selectedItem);
   const [loading, setloader] = useState(false)
   const [selectedItem, setselectedItem] = useState({})
-  console.log('sdfhjsdhfjsd--> ',selected);
   const dispatch = useDispatch()
 
 

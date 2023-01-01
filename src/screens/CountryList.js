@@ -8,6 +8,8 @@ import {
 } from 'react-native-responsive-screen';
 import { useSelector, useDispatch } from 'react-redux';
 import * as mainAction from '../../redux/action/mainAction'
+import PTRView from 'react-native-pull-to-refresh';
+ 
 
 const CountryList = (props) => {
 const [data, setdata] = useState([])
@@ -43,6 +45,10 @@ const [data, setdata] = useState([])
     props.navigation.goBack()
   }
 
+  const onRefresh = () => {
+    setdata(countryList.countries)
+    dispatch(mainAction.setSelectedList(countryList.countries))
+  }
   
 
 
@@ -70,7 +76,9 @@ const [data, setdata] = useState([])
     )
   }
   return (
+    
     <SafeAreaView style={styles.container}>
+      <PTRView  onRefresh={onRefresh} >
       <View style={[styles.row, { alignItems: 'center', marginHorizontal: wp(2) }]}>
         <TouchableOpacity>
           <Image
@@ -116,6 +124,7 @@ const [data, setdata] = useState([])
           keyExtractor={item => item.country_id}
         />
       </View>
+      </PTRView>
 
       {
         isShow &&
@@ -125,6 +134,7 @@ const [data, setdata] = useState([])
       }
 
     </SafeAreaView>
+    
   );
 };
 const styles = StyleSheet.create({
